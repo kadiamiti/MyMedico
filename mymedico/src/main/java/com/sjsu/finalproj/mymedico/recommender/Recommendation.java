@@ -1,5 +1,3 @@
-package Lifestyle;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,7 +10,7 @@ public class Recommendation {
 	  public static  String jdbc_password="rememberme";
 	  public static String jdbc_driver="com.mysql.jdbc.Driver"; 
 	
-	public static int main(String args[]) throws Exception	{
+	public static void main(String args[]) throws Exception	{
 		 Class.forName(jdbc_driver);
 		 Connection con=DriverManager.getConnection(jdbc_url, jdbc_username,jdbc_password);
 		 Statement stmt = null;
@@ -40,6 +38,5 @@ public class Recommendation {
     	  ResultSet rs2 = stmt.executeQuery("select recommend from recommendation where id = "+id);
     	  rs2.next();
     	  System.out.println(rs2.getString("recommend"));
-    	  return id;
 	}
 }
